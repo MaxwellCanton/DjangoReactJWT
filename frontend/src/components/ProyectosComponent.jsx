@@ -1,7 +1,8 @@
 import { return_proyectos } from '../redux/actions/proyecto'
 import { connect } from "react-redux";
-import { useEffect } from 'react';
-import { Card, SimpleGrid } from '@chakra-ui/react'
+import React, { useEffect } from 'react';
+import {Button, Card, SimpleGrid} from '@chakra-ui/react'
+import {Link} from "react-router-dom";
 
 export function ProyectosComponent({return_proyectos, proyectos_list}){
 
@@ -22,7 +23,7 @@ export function ProyectosComponent({return_proyectos, proyectos_list}){
                                                 {proyecto.nombre}
                                             </div>
                                             <div>
-                                            {/*<Button size='sm' colorScheme='teal' variant='outline'><Link to={`/proyecto/api/${proyecto.id}`}>info</Link></Button>*/}
+                                                <Button className="button_info" colorScheme='teal' variant='link' as={Link} to={`/proyectos/api/${proyecto.id}`}>info</Button>
                                             </div>
                                         </Card>
                                     ))

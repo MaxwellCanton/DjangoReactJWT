@@ -15,6 +15,7 @@ import {LoginComponent} from "./components/LoginComponent";
 import {LogoutComponent} from "./components/LogoutComponent";
 import {CreateClienteComponent} from "./components/CreateClienteComponent";
 import {RegisterComponent} from "./components/RegisterComponent";
+import DetalleProyectoComponent from "./components/DetalleProyectoComponent";
 
 function App() {
 
@@ -37,6 +38,9 @@ function App() {
                     <Route path="/app/api/register" element={<RegisterComponent/>}/>
 
                     <Route path="/proyectos/api" element={<ProyectosComponent/>}/>
+                    <Route path="/proyectos/api/:id" element={<DetalleProyectoComponent />}/>
+
+
                     <Route path="/clientes/api" element={<ClientesComponent/>}/>
                     <Route path="/clientes/api/:id" element={<DetalleClienteComponent />}/>
                     <Route path="/clientes/api/actualizar/:id" element={<ActualizarClienteComponent/>}/>

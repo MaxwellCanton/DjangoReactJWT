@@ -18,7 +18,7 @@ class ProyectoView(generics.GenericAPIView):
         if Proyecto.objects.all().exists():
             proyectos = Proyecto.objects.all()
             serializer = ProyectoSerializer(proyectos, many=True)
-            return Response({'proyectis':serializer.data}, status=status.HTTP_200_OK)
+            return Response({'proyectos':serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response({'error':'No hay proyectos'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
