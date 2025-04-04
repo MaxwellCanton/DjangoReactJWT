@@ -1,6 +1,6 @@
 from django.db import models
 
-from backend.usuarios.models import AppUser
+from usuarios.models import AppUser
 
 
 class Cliente(models.Model):
