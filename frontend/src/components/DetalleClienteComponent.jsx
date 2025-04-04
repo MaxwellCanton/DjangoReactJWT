@@ -30,7 +30,7 @@ function DetalleClienteComponent ({return_cliente_by_id, detail_cliente}){
 
                             <div id={styles["information-box"]}>
                                 <div id={styles["date-box"]}>
-                                    {new Intl.DateTimeFormat("es-ES").format(new Date(detail_cliente.creado_en))}
+                                    {detail_cliente.email}
                                 </div>
                                 <div id={styles["phone-box"]}>
                                     {detail_cliente.telefono}

@@ -35,8 +35,11 @@ function ActualizarClienteComponent({return_cliente_by_id, detail_cliente}){
                                 <Input defaultValue = {detail_cliente.nombre}  {...register("nombre", {required:true})}/>
                                 {errors.nombre && <span>this field is required</span>}
 
-                                <Input defaultValue={detail_cliente.creado_en} size="md" type="date" {...register("creado_en", {required:true})}/>
-                                {errors.creado_en && <span>this field is required</span>}
+                                <Input defaultValue = {detail_cliente.email}  {...register("email", {required:true})}/>
+                                {errors.email && <span>this field is required</span>}
+
+                                <Input defaultValue = {detail_cliente.telefono}  {...register("telefono", {required:true})}/>
+                                {errors.telefono && <span>this field is required</span>}
 
                                 <Textarea defaultValue={detail_cliente.descripcion}  placeholder='Plot'  {...register("descripcion", {required:true})}/>
                                 {errors.descripcion && <span>this field is required</span>}

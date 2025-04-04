@@ -15,7 +15,7 @@ class ClienteView(generics.GenericAPIView):
     def get(self, request):
 
         if Cliente.objects.all().exists():
-            clientes = Cliente.objects.all().order_by('-creado_en')
+            clientes = Cliente.objects.all()
             serializer = ClienteSerializer(clientes, many=True)
             return Response({'clientes':serializer.data}, status=status.HTTP_200_OK)
         else:
@@ -35,7 +35,7 @@ class ClienteByIdView(APIView):
         if Cliente.objects.all().exists():
             cliente = Cliente.objects.get(id = cliente_id)
             serializer = ClienteSerializer(cliente, many=False)
-            return Response({'note':serializer.data}, status=status.HTTP_200_OK)
+            return Response({'cliente':serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response({'error':'No existe cliente con ese id'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -52,4 +52,5 @@ class ClienteByIdView(APIView):
             serializer.save()
             return Response({"success": True}, status=status.HTTP_200_OK)
         else:
+            print(serializer.errors)
             return Response({"success": False})

@@ -14,4 +14,3 @@ class Proyecto(models.Model):
     nombre = models.CharField(max_length=255)
     descripcion = models.TextField(blank=True, null=True)
     estado = models.CharField(max_length=20, choices=ESTADOS, default='pendiente')
-    creado_en = models.DateTimeField(auto_now_add=True)

@@ -13,7 +13,7 @@ class ProyectoView(generics.GenericAPIView):
     def get(self, request):
 
         if Proyecto.objects.all().exists():
-            proyectos = Proyecto.objects.all().order_by('-creado_en')
+            proyectos = Proyecto.objects.all()
             serializer = ProyectoSerializer(proyectos, many=True)
             return Response({'proyectos':serializer.data}, status=status.HTTP_200_OK)
         else:

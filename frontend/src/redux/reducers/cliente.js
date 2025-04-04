@@ -25,7 +25,7 @@ export default function cliente(state = initialState, action) {
         case GET_CLIENT_BY_ID_SUCCESS:
             return {
                 ...state,
-                detail_cliente: payload.note,
+                detail_cliente: payload.cliente,
             }
         case GET_CLIENT_BY_ID_FAIL:
             return {

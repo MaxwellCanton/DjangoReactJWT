@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-function BodyComponent({return_notes, note_list}){
+function BodyComponent(){
 
 
     return (
