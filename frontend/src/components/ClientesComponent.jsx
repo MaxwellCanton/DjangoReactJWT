@@ -22,7 +22,7 @@ export function ClientesComponent({return_clientes, clientes_list}){
                                                 {cliente.nombre}
                                             </div>
                                             <div>
-                                            <Button size='sm' colorScheme='teal' variant='outline'><Link to={`/cliente/api/${cliente.id}`}>info</Link></Button>
+                                                <Button size='sm' colorScheme='teal' variant='outline'><Link to={`/clientes/api/${cliente.id}`}>info</Link></Button>
                                             </div>
                                         </Card>
                                     ))

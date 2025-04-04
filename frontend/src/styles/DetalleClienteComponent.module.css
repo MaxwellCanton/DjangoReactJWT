@@ -1,0 +1,25 @@
+#title-movie{
+    font-size:40px;
+}
+
+#information-movie{
+    display:flex;
+}
+
+#genre-movie{
+    width:50%;
+    text-align:right;
+}
+
+#released-movie{
+    width:50%;
+    text-align:left;
+    margin-left:5%;
+}
+
+#description-movie{
+    font-size:17px;
+    margin-left:10%;
+    margin-right:10%;
+    margin-top:2%;
+}

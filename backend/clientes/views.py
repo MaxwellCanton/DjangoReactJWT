@@ -1,6 +1,8 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.views import APIView
 
 from clientes.models import Cliente
 from clientes.serializers import ClienteSerializer
@@ -27,3 +29,28 @@ class ClienteView(generics.GenericAPIView):
             return Response({"success": True}, status=status.HTTP_200_OK)
         else:
             return Response({"success": serializer.errors})
+
+class ClienteByIdView(APIView):
+    def get(self, request, cliente_id):
+        if Cliente.objects.all().exists():
+            cliente = Cliente.objects.get(id = cliente_id)
+            serializer = ClienteSerializer(cliente, many=False)
+            return Response({'note':serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({'error':'No existe cliente con ese id'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def delete(self, request, cliente_id):
+        cliente = get_object_or_404(Cliente.objects.all(), pk=cliente_id)
+        cliente.delete()
+        return Response({"success": True}, status=status.HTTP_200_OK)
+
+
+    def put(self, request, cliente_id):
+        data = request.data
+        cliente = Cliente.objects.get(id = cliente_id)
+        serializer = ClienteSerializer(instance = cliente, data = data, partial = True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"success": True}, status=status.HTTP_200_OK)
+        else:
+            return Response({"success": False})
