@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from "react-redux";
 import {create_cliente} from "../redux/actions/cliente";
 
-export function CreateClienteComponent({}){
+export function CreateClienteComponent({isAuth}){
 
     const {register, handleSubmit, formState: {errors} }= useForm();
     const navigate = useNavigate();
@@ -17,34 +17,46 @@ export function CreateClienteComponent({}){
     return (
         <div className='container'>
             <div className='main-panel'>
-                <h4>Crear nuevo cliente</h4>
 
-                <form onSubmit={onsubmit} style={{margin: "7%"}}>
+                {
+                    isAuth ?
+                    <>
+                        <h4>Crear nuevo cliente</h4>
+
+                        <form onSubmit={onsubmit} style={{margin: "7%"}}>
 
 
-                    <Stack spacing={4}>
+                            <Stack spacing={4}>
 
-                        <label htmlFor="nombre">Name</label>
-                        <Input id="nombre" {...register("nombre", {required: true})}/>
-                        {errors.nombre && <span>this field is required</span>}
+                                <label htmlFor="nombre">Name</label>
+                                <Input id="nombre" {...register("nombre", {required: true})}/>
+                                {errors.nombre && <span>this field is required</span>}
 
-                        <label htmlFor="email">Email</label>
-                        <Input id="email" {...register("email", {required: true})}/>
-                        {errors.email && <span>this field is required</span>}
+                                <label htmlFor="email">Email</label>
+                                <Input id="email" {...register("email", {required: true})}/>
+                                {errors.email && <span>this field is required</span>}
 
-                        <label htmlFor="telefono">Telefono</label>
-                        <Input id="telefono" {...register("telefono", {required: true})}/>
-                        {errors.telefono && <span>this field is required</span>}
+                                <label htmlFor="telefono">Telefono</label>
+                                <Input id="telefono" {...register("telefono", {required: true})}/>
+                                {errors.telefono && <span>this field is required</span>}
 
-                        <label htmlFor="descripcion">Descripcion</label>
-                        <Textarea id="descripcion" {...register("descripcion", {required: true})}/>
-                        {errors.descripcion && <span>this field is required</span>}
+                                <label htmlFor="descripcion">Descripcion</label>
+                                <Textarea id="descripcion" {...register("descripcion", {required: true})}/>
+                                {errors.descripcion && <span>this field is required</span>}
 
-                        <button>Crear</button>
+                                <button>Crear</button>
 
-                    </Stack>
+                            </Stack>
 
-                </form>
+                        </form>
+
+                    </> :<>
+
+                    <h1>DEBE LOGEARSE PRIMERO</h1>
+
+                    </>
+                }
+
 
             </div>
         </div>
@@ -55,4 +67,4 @@ const mapStateToProps = state => ({
     proyectos_list: state.proyecto.proyectos_list,
 })
 
-export default connect(mapStateToProps,{})(CreateClienteComponent)
+export default connect(mapStateToProps, {})(CreateClienteComponent)

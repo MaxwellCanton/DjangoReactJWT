@@ -22,11 +22,11 @@ export function HeaderComponent({isAuth, setIsAuth}){
             <div id={styles["accounts-buttons-box"]}>
 
 
-                {isProyectosPage && (
+                {isProyectosPage && isAuth && (
                     <Button id={styles["button_create"]} colorScheme='teal' variant='link' as={Link} to="/app/api/create/proyecto">create</Button>
                 )}
 
-                {isClientesPage && (
+                {isClientesPage && isAuth && (
                     <Button id={styles["button_create"]} colorScheme='teal' variant='link' as={Link} to="/app/api/create/cliente">create</Button>
                 )}
 

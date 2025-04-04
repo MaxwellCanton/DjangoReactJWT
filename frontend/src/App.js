@@ -38,7 +38,7 @@ function App() {
                     <Route path="/clientes/api/:id" element={<DetalleClienteComponent />}/>
                     <Route path="/clientes/api/actualizar/:id" element={<ActualizarClienteComponent/>}/>
 
-                    <Route path="/app/api/create/cliente" element={<CreateClienteComponent/>}/>
+                    <Route path="/app/api/create/cliente" element={<CreateClienteComponent isAuth={isAuth}/>}/>
                 </Routes>
                 <FooterComponent/>
             </div>
