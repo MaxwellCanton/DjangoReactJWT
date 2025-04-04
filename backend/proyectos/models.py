@@ -1,6 +1,6 @@
 from django.db import models
 
-from backend.clientes.models import Cliente
+from clientes.models import Cliente
 
 
 class Proyecto(models.Model):
