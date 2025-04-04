@@ -14,6 +14,7 @@ import ActualizarClienteComponent from "./components/ActualizarClienteComponent"
 import {LoginComponent} from "./components/LoginComponent";
 import {LogoutComponent} from "./components/LogoutComponent";
 import {CreateClienteComponent} from "./components/CreateClienteComponent";
+import {RegisterComponent} from "./components/RegisterComponent";
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
                     <Route path="/" element={<BodyComponent/>}/>
                     <Route path="/app/api/login" element={<LoginComponent setIsAuth={setIsAuth}/>}/>
                     <Route path="/app/api/logout" element={<LogoutComponent setIsAuth={setIsAuth}/>}/>
+                    <Route path="/app/api/register" element={<RegisterComponent/>}/>
+
                     <Route path="/proyectos/api" element={<ProyectosComponent/>}/>
                     <Route path="/clientes/api" element={<ClientesComponent/>}/>
                     <Route path="/clientes/api/:id" element={<DetalleClienteComponent />}/>
