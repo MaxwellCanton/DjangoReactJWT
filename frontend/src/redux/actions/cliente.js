@@ -15,7 +15,7 @@ const client = axios.create({
 export const return_clientes = () => async dispatch => {
 
   try {
-    const res = await client.get("/clientes/api");
+    const res = await client.get("/clientes/api/");
 
     if(res.status === 200){
       dispatch({type: GET_CLIENT_LIST_SUCCESS, payload: res.data});

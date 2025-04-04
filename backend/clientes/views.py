@@ -13,7 +13,7 @@ class ClienteView(generics.GenericAPIView):
     def get(self, request):
 
         if Cliente.objects.all().exists():
-            clientes = Cliente.objects.all().order_by('-release_date')
+            clientes = Cliente.objects.all().order_by('-creado_en')
             serializer = ClienteSerializer(clientes, many=True)
             return Response({'clientes':serializer.data}, status=status.HTTP_200_OK)
         else:

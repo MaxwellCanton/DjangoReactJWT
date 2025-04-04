@@ -15,7 +15,7 @@ const client = axios.create({
 export const return_proyectos = () => async dispatch => {
 
   try {
-    const res = await client.get("/proyectos/api");
+    const res = await client.get("/proyectos/api/");
 
     if(res.status === 200){
       dispatch({type: GET_PROJECT_LIST_SUCCESS, payload: res.data});
