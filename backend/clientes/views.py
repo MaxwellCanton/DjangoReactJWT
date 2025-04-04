@@ -1,16 +1,18 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 
 from clientes.models import Cliente
-from clientes.serializers import ClienteSerializer
+from clientes.serializers import ClienteSerializer, ClientePostSerializer
 
 
 class ClienteView(generics.GenericAPIView):
 
     serializer_class = ClienteSerializer
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
 
@@ -23,7 +25,8 @@ class ClienteView(generics.GenericAPIView):
 
     def post(self, request):
         cliente =  request.data
-        serializer = ClienteSerializer(data=cliente)
+        cliente["usuario"] = request.user.id
+        serializer = ClientePostSerializer(data=cliente)
         if serializer.is_valid():
             serializer.save()
             return Response({"success": True}, status=status.HTTP_200_OK)
@@ -31,6 +34,9 @@ class ClienteView(generics.GenericAPIView):
             return Response({"success": serializer.errors})
 
 class ClienteByIdView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, cliente_id):
         if Cliente.objects.all().exists():
             cliente = Cliente.objects.get(id = cliente_id)
