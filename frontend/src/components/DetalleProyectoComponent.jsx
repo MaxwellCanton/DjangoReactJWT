@@ -48,7 +48,7 @@ function DetalleProyectoComponent ({return_proyecto_by_id, detail_proyecto}){
                                     }} colorScheme='pink' variant='solid'> Borrar </Button>
                                 </div>
 
-                                <div id={styles["edit-box"]}>
+                                <div id={styles["edit-box"]} >
                                     <Button id={styles["button_proyectos"]} colorScheme='teal' variant='solid' as={Link}
                                             to={`/proyectos/api/actualizar/${detail_proyecto.id}`}>Actualizar</Button>
                                 </div>

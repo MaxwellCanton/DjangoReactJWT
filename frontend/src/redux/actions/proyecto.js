@@ -69,3 +69,14 @@ export const delete_proyecto = (id) => {
                  withCredentials: true});
 
 }
+
+export const update_proyecto = (post, id) => {
+
+    client.put(`/proyectos/api/${id}`, post,{
+                 headers: {
+                     "Content-Type": "application/json",
+                     Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                 },
+                 withCredentials: true});
+
+}

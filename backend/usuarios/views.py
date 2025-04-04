@@ -60,3 +60,12 @@ class Registro(generics.GenericAPIView):
             if user:
                 return Response({"data": "success"}, status=status.HTTP_201_CREATED)
         return Response({"data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CheckUserAuthenticated(APIView):
+
+    def post(self,request):
+        if request.user.is_authenticated:
+            return Response(True, status=status.HTTP_200_OK)
+        else:
+            return Response(False, status=status.HTTP_200_OK)

@@ -54,7 +54,8 @@ function DetalleClienteComponent ({return_cliente_by_id, detail_cliente}){
                                 </div>
 
                                 <div id={styles["edit-box"]} >
-                                    <Button id={styles["button_proyectos"]} colorScheme='teal' variant='solid' as={Link} to={`/clientes/api/actualizar/${detail_cliente.id}`}>Actualizar</Button>
+                                    <Button id={styles["button_proyectos"]} colorScheme='teal' variant='solid' as={Link}
+                                            to={`/clientes/api/actualizar/${detail_cliente.id}`}>Actualizar</Button>
                                 </div>
                             </div>
 

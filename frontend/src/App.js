@@ -16,6 +16,16 @@ import {LogoutComponent} from "./components/LogoutComponent";
 import {CreateClienteComponent} from "./components/CreateClienteComponent";
 import {RegisterComponent} from "./components/RegisterComponent";
 import DetalleProyectoComponent from "./components/DetalleProyectoComponent";
+import ActualizarProyectoComponent from "./components/ActualizarProyectoComponent";
+
+import axios from 'axios';
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = "X-CSRFToken"
+axios.defaults.withCredentials = true;
+
+const client = axios.create({
+  baseURL: process.env.REACT_APP_ENVIRONMENT
+});
 
 function App() {
 
@@ -25,6 +35,13 @@ function App() {
         setIsAuth(true);
       }
     }, [isAuth]);
+
+    useEffect(() => {
+        client.post("/api/check/login").then(response => {
+          setIsAuth(response.data);
+          localStorage.clear();
+        });
+      }, []);
 
     return (
         <ChakraProvider >
@@ -39,6 +56,7 @@ function App() {
 
                     <Route path="/proyectos/api" element={<ProyectosComponent/>}/>
                     <Route path="/proyectos/api/:id" element={<DetalleProyectoComponent />}/>
+                    <Route path="/proyectos/api/actualizar/:id" element={<ActualizarProyectoComponent/>}/>
 
 
                     <Route path="/clientes/api" element={<ClientesComponent/>}/>
