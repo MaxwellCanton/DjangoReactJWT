@@ -1,3 +1,12 @@
+#select-categories-box-sup{
+    width:50%;
+    text-align:left;
+}
+
+#select-categories-box-inf{
+    width:40%;
+    height:100%;
+}
 
 #accounts-buttons-box{
     width:42%;
