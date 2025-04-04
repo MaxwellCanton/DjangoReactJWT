@@ -48,3 +48,9 @@ export const return_cliente_by_id =  (cliente_id) => async dispatch => {
   }
 
 }
+
+export const delete_cliente = (id) => {
+
+  client.delete(`/clientes/api/${id}`);
+
+}

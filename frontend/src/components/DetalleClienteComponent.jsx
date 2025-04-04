@@ -1,4 +1,4 @@
-import {return_cliente_by_id} from "../redux/actions/cliente";
+import {return_cliente_by_id, delete_cliente} from "../redux/actions/cliente";
 import { connect } from "react-redux";
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -48,7 +48,7 @@ function DetalleClienteComponent ({return_cliente_by_id, detail_cliente}){
                             <div id={styles["control-buttons-box-box"]}>
                                 <div id={styles["delete-box"]} >
                                     <Button onClick={async () => {
-                                        // delete_cliente(detail_cliente.id);
+                                        delete_cliente(detail_cliente.id);
                                         navigate("/");
                                     }} colorScheme='pink' variant='solid'> Borrar </Button>
                                 </div>

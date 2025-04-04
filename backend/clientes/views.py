@@ -44,7 +44,6 @@ class ClienteByIdView(APIView):
         cliente.delete()
         return Response({"success": True}, status=status.HTTP_200_OK)
 
-
     def put(self, request, cliente_id):
         data = request.data
         cliente = Cliente.objects.get(id = cliente_id)
