@@ -80,3 +80,12 @@ export const update_proyecto = (post, id) => {
                  withCredentials: true});
 
 }
+
+export const create_proyecto = (post) => {
+    const res = client.post("/proyectos/api/", post,{
+                 headers: {
+                     "Content-Type": "application/json",
+                     Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                 },
+                 withCredentials: true});
+}

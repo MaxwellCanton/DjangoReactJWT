@@ -17,6 +17,7 @@ import {CreateClienteComponent} from "./components/CreateClienteComponent";
 import {RegisterComponent} from "./components/RegisterComponent";
 import DetalleProyectoComponent from "./components/DetalleProyectoComponent";
 import ActualizarProyectoComponent from "./components/ActualizarProyectoComponent";
+import CreateProyectoComponent from "./components/CreateProyectoComponent";
 
 import axios from 'axios';
 axios.defaults.xsrfCookieName = 'csrftoken'
@@ -57,12 +58,12 @@ function App() {
                     <Route path="/proyectos/api" element={<ProyectosComponent/>}/>
                     <Route path="/proyectos/api/:id" element={<DetalleProyectoComponent />}/>
                     <Route path="/proyectos/api/actualizar/:id" element={<ActualizarProyectoComponent/>}/>
+                    <Route path="/app/api/create/proyecto" element={<CreateProyectoComponent isAuth={isAuth}/>}/>
 
 
                     <Route path="/clientes/api" element={<ClientesComponent/>}/>
                     <Route path="/clientes/api/:id" element={<DetalleClienteComponent />}/>
                     <Route path="/clientes/api/actualizar/:id" element={<ActualizarClienteComponent/>}/>
-
                     <Route path="/app/api/create/cliente" element={<CreateClienteComponent isAuth={isAuth}/>}/>
                 </Routes>
                 <FooterComponent/>

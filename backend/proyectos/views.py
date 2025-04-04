@@ -5,7 +5,7 @@ from rest_framework import status, generics
 from rest_framework.views import APIView
 
 from proyectos.models import Proyecto
-from proyectos.serializers import ProyectoSerializer
+from proyectos.serializers import ProyectoSerializer, ProyectoPostSerializer
 
 
 class ProyectoView(generics.GenericAPIView):
@@ -22,15 +22,15 @@ class ProyectoView(generics.GenericAPIView):
         else:
             return Response({'error':'No hay proyectos'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    # def post(self, request):
-    #     proyecto =  request.data
-    #     proyecto["usuario"] = request.user.id
-    #     serializer = ProyectoPostSerializer(data=proyecto)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response({"success": True}, status=status.HTTP_200_OK)
-    #     else:
-    #         return Response({"success": serializer.errors})
+    def post(self, request):
+        proyecto =  request.data
+        serializer = ProyectoPostSerializer(data=proyecto)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"success": True}, status=status.HTTP_200_OK)
+        else:
+            return Response({"success": serializer.errors})
+
 
 class ProyectoByIdView(APIView):
 

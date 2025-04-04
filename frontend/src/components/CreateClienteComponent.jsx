@@ -64,7 +64,7 @@ export function CreateClienteComponent({isAuth}){
 };
 
 const mapStateToProps = state => ({
-    proyectos_list: state.proyecto.proyectos_list,
+    clientes_list: state.cliente.clientes_list,
 })
 
 export default connect(mapStateToProps, {})(CreateClienteComponent)
