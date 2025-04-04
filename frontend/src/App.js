@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import store from './store'
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { FooterComponent } from './components/FooterComponent';
+import BodyComponent from './components/BodyComponent';
 
 function App() {
-
-
   return (
     <ChakraProvider >
       <Provider store={store}>
-        <div className='App'>
 
-        </div>
+        <Router>
+            <div className='App'>
+                <Routes>
+                  <Route path="/" element={<BodyComponent/>}/>
+                </Routes>
+                <FooterComponent/>
+            </div>
+        </Router>
       </Provider>
     </ChakraProvider>
-  );
-
-
+);
 
 }
 
