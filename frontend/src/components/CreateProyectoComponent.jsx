@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { return_clientes } from '../redux/actions/cliente'
 import { useEffect } from 'react';
 import { connect } from "react-redux";
+import {estados} from "../variables";
 
 
 export function CreateProyectoComponent({isAuth, return_clientes, clientes_list}){
@@ -19,11 +20,6 @@ export function CreateProyectoComponent({isAuth, return_clientes, clientes_list}
         navigate("/");
     });
 
-    const estados = [
-      { id: "pendiente", title: "Pendiente" },
-      { id: "en_progreso", title: "En Progreso" },
-      { id: "completado", title: "Completado" },
-    ];
 
     return (
         <div className='container'>

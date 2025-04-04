@@ -3,7 +3,7 @@ import './App.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import store from './store'
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import BodyComponent from './components/BodyComponent';
 import HeaderComponent from "./components/HeaderComponent";
 import { FooterComponent } from './components/FooterComponent';
@@ -24,25 +24,16 @@ axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFToken"
 axios.defaults.withCredentials = true;
 
-const client = axios.create({
-  baseURL: process.env.REACT_APP_ENVIRONMENT
-});
-
 function App() {
 
     const [isAuth, setIsAuth] = useState(false);
     useEffect(() => {
-     if (localStorage.getItem('access_token') !== null) {
-        setIsAuth(true);
-      }
-    }, [isAuth]);
-
-    useEffect(() => {
-        client.post("/api/check/login").then(response => {
-          setIsAuth(response.data);
-          localStorage.clear();
-        });
-      }, []);
+        if(localStorage.getItem('access_token') === null){
+            setIsAuth(false)
+        }else{
+            setIsAuth(true)
+        }
+     }, []);
 
     return (
         <ChakraProvider >

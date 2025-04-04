@@ -1,10 +1,11 @@
 import {useForm} from 'react-hook-form';
 import {return_proyecto_by_id, update_proyecto} from "../redux/actions/proyecto";
-import { Input, Stack, Textarea } from '@chakra-ui/react'
+import {Input, Select, Stack, Textarea} from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import {estados} from "../variables";
 
 
 function ActualizarProyectoComponent({return_proyecto_by_id, detail_proyecto}){
@@ -35,11 +36,16 @@ function ActualizarProyectoComponent({return_proyecto_by_id, detail_proyecto}){
                                 <Input defaultValue = {detail_proyecto.nombre}  {...register("nombre", {required:true})}/>
                                 {errors.nombre && <span>Este campo es obligatorio</span>}
 
-                                {/*<Input defaultValue = {detail_proyecto.email}  {...register("email", {required:true})}/>*/}
-                                {/*{errors.email && <span>Este campo es obligatorio</span>}*/}
-
-                                {/*<Input defaultValue = {detail_proyecto.telefono}  {...register("telefono", {required:true})}/>*/}
-                                {/*{errors.telefono && <span>Este campo es obligatorio</span>}*/}
+                                <label htmlFor="estado">Estado</label>
+                                <Select defaultValue = {detail_proyecto.estado.id}
+                                        style={{height: "100%"}} {...register("estado", {required: true})}>
+                                    {estados.map((estado) => (
+                                        <option key={estado.id} value={estado.id}>
+                                            {estado.title}
+                                        </option>
+                                    ))}
+                                </Select>
+                                {errors.estado && <span>this field is required</span>}
 
                                 <Textarea defaultValue={detail_proyecto.descripcion}  placeholder='Plot'  {...register("descripcion", {required:true})}/>
                                 {errors.descripcion && <span>Este campo es obligatorio</span>}

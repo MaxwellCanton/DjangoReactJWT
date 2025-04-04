@@ -1,38 +1,26 @@
 from rest_framework import permissions, status
 from django.contrib.auth import get_user_model
-from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework_simplejwt.tokens import RefreshToken
-
-from usuarios.serializers import RegistroSerializer
-
-User = get_user_model()
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from usuarios.serializers import RegistroSerializer
 
-
-class HomeView(APIView):
-    permission_classes = (IsAuthenticated,)
-
-    def get(self, request):
-        content = {"message": "Welcome to the JWT Authentication page using React Js and Django!"}
-        return Response(content)
+User = get_user_model()
 
 
 class LogoutView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-
         try:
-            refresh_token = request.data["refresh_token"]
+            refresh_token = request.data.get('refresh_token')
             token = RefreshToken(refresh_token)
             token.blacklist()
-            return Response(status=status.HTTP_205_RESET_CONTENT)
+            return Response({"detail": "Logout successful"}, status=200)
         except Exception as e:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail": "Invalid token"}, status=400)
 
 class Registro(generics.GenericAPIView):
     permission_classes = (permissions.AllowAny,)
@@ -61,11 +49,10 @@ class Registro(generics.GenericAPIView):
                 return Response({"data": "success"}, status=status.HTTP_201_CREATED)
         return Response({"data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
+class HomeView(APIView):
+    permission_classes = (IsAuthenticated,)
 
-class CheckUserAuthenticated(APIView):
+    def get(self, request):
+        content = {"message": "Welcome to the JWT Authentication page using React Js and Django!"}
+        return Response(content)
 
-    def post(self,request):
-        if request.user.is_authenticated:
-            return Response(True, status=status.HTTP_200_OK)
-        else:
-            return Response(False, status=status.HTTP_200_OK)

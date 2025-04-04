@@ -17,31 +17,15 @@ export function LoginComponent({setIsAuth}){
 
     const onsubmit = handleSubmit(async (user) => {
         try {
-            const { data } = await axios.post(
-                'http://localhost:8000/token/',
-                user,
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true,
-                }
-            );
-
-            localStorage.clear();
-            localStorage.setItem('access_token', data.access);
-            localStorage.setItem('refresh_token', data.refresh);
-            axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
-            setIsAuth(true);
-            navigate("/");
+          const response = await axios.post('http://localhost:8000/token/',user);
+          localStorage.setItem('access_token', response.data.access);
+          localStorage.setItem('refresh_token', response.data.refresh);
+          setIsAuth(true)
+          navigate("/");
         } catch (error) {
-            let message = "Ocurrió un error mientras intentaba loguearse.";
-
-            if (error.response && error.response.status === 401) {
-                message = "Correo o contraseña incorrectos. Inténtalo de nuevo.";
-            }
-
-            toast({
+          toast({
                 title: 'Error',
-                description: message,
+                description: 'Revise sus credenciales',
                 status: 'error',
                 duration: 5000,
                 isClosable: true,
