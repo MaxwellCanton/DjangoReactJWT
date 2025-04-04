@@ -9,8 +9,8 @@ export function HeaderComponent(){
 
             <div id={styles["select-categories-box-sup"]}>
                 <div  id={styles["select-categories-box-inf"]} style={{display:true}}>
-                    <Button id={styles["button_proyectos"]} colorScheme='teal' variant='link' as={Link} to="/app/api/proyectos">proyectos</Button>
-                    <Button id={styles["button_clientes"]} colorScheme='teal' variant='link' as={Link} to="/app/api/clientes">clientes</Button>
+                    <Button id={styles["button_proyectos"]} colorScheme='teal' variant='link' as={Link} to="/proyectos/api">proyectos</Button>
+                    <Button id={styles["button_clientes"]} colorScheme='teal' variant='link' as={Link} to="/clientes/api">clientes</Button>
                 </div>
             </div>
 
