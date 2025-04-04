@@ -59,7 +59,7 @@ export function LoginComponent({setIsAuth}){
                     <Stack id={styles["login-card"]} spacing={7} >
                     
                         <Input type='email'  placeholder='email' {...register("email", {required:true})}/>
-                        {errors.email && <span>this field is required</span>}
+                        {errors.email && <span>Este campo es obligatorio</span>}
 
                         <InputGroup>
                             <Input
@@ -71,7 +71,7 @@ export function LoginComponent({setIsAuth}){
                                 </Button>
                             </InputRightElement>
                         </InputGroup>
-                        {errors.password && <span>this field is required</span>}
+                        {errors.password && <span>Este campo es obligatorio</span>}
 
                         <button>log in</button>
 

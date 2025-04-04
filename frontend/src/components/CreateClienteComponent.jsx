@@ -30,19 +30,19 @@ export function CreateClienteComponent({isAuth}){
 
                                 <label htmlFor="nombre">Name</label>
                                 <Input id="nombre" {...register("nombre", {required: true})}/>
-                                {errors.nombre && <span>this field is required</span>}
+                                {errors.nombre && <span>Este campo es obligatorio</span>}
 
                                 <label htmlFor="email">Email</label>
                                 <Input id="email" {...register("email", {required: true})}/>
-                                {errors.email && <span>this field is required</span>}
+                                {errors.email && <span>Este campo es obligatorio</span>}
 
                                 <label htmlFor="telefono">Telefono</label>
                                 <Input id="telefono" {...register("telefono", {required: true})}/>
-                                {errors.telefono && <span>this field is required</span>}
+                                {errors.telefono && <span>Este campo es obligatorio</span>}
 
                                 <label htmlFor="descripcion">Descripcion</label>
                                 <Textarea id="descripcion" {...register("descripcion", {required: true})}/>
-                                {errors.descripcion && <span>this field is required</span>}
+                                {errors.descripcion && <span>Este campo es obligatorio</span>}
 
                                 <button>Crear</button>
 

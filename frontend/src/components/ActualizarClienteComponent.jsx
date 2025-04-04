@@ -33,16 +33,16 @@ function ActualizarClienteComponent({return_cliente_by_id, detail_cliente}){
                             <Stack spacing={4}>
 
                                 <Input defaultValue = {detail_cliente.nombre}  {...register("nombre", {required:true})}/>
-                                {errors.nombre && <span>this field is required</span>}
+                                {errors.nombre && <span>Este campo es obligatorio</span>}
 
                                 <Input defaultValue = {detail_cliente.email}  {...register("email", {required:true})}/>
-                                {errors.email && <span>this field is required</span>}
+                                {errors.email && <span>Este campo es obligatorio</span>}
 
                                 <Input defaultValue = {detail_cliente.telefono}  {...register("telefono", {required:true})}/>
-                                {errors.telefono && <span>this field is required</span>}
+                                {errors.telefono && <span>Este campo es obligatorio</span>}
 
                                 <Textarea defaultValue={detail_cliente.descripcion}  placeholder='Plot'  {...register("descripcion", {required:true})}/>
-                                {errors.descripcion && <span>this field is required</span>}
+                                {errors.descripcion && <span>Este campo es obligatorio</span>}
 
                                 <button>Actualizar</button>
 
