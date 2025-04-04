@@ -1,6 +1,6 @@
 import {return_cliente_by_id, delete_cliente} from "../redux/actions/cliente";
 import { connect } from "react-redux";
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from "../styles/DetalleClienteComponent.module.css";
 import { Button} from '@chakra-ui/react'
@@ -54,15 +54,12 @@ function DetalleClienteComponent ({return_cliente_by_id, detail_cliente}){
                                 </div>
 
                                 <div id={styles["edit-box"]} >
-                                    <Button colorScheme='teal' variant='solid'> <Link to={`/clientes/api/update/${detail_cliente.id}`}>Actualizar</Link></Button>
+                                    <Button id={styles["button_proyectos"]} colorScheme='teal' variant='solid' as={Link} to={`/clientes/api/actualizar/${detail_cliente.id}`}>Actualizar</Button>
                                 </div>
                             </div>
 
-                        </> : <> no items </>
-
+                        </> : <> no item </>
                 }
-
-
             </div>
         </div>
     )

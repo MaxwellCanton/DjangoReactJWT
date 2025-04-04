@@ -9,6 +9,7 @@ import { FooterComponent } from './components/FooterComponent';
 import ProyectosComponent from "./components/ProyectosComponent";
 import ClientesComponent from "./components/ClientesComponent";
 import DetalleClienteComponent from "./components/DetalleClienteComponent";
+import ActualizarClienteComponent from "./components/ActualizarClienteComponent";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     <Route path="/proyectos/api" element={<ProyectosComponent/>}/>
                     <Route path="/clientes/api" element={<ClientesComponent/>}/>
                     <Route path="/clientes/api/:id" element={<DetalleClienteComponent />}/>
+                    <Route path="/clientes/api/actualizar/:id" element={<ActualizarClienteComponent/>}/>
                 </Routes>
                 <FooterComponent/>
             </div>

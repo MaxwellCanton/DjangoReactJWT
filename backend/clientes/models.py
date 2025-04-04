@@ -8,7 +8,7 @@ class Cliente(models.Model):
     nombre = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     telefono = models.CharField(max_length=20, blank=True, null=True)
-    creado_en = models.DateTimeField(auto_now_add=True)
+    creado_en = models.DateField(auto_now_add=True)
     descripcion = models.TextField(blank=True, null=True)
 
     def __str__(self):

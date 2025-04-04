@@ -54,3 +54,9 @@ export const delete_cliente = (id) => {
   client.delete(`/clientes/api/${id}`);
 
 }
+
+export const update_cliente = (post, id) => {
+
+    client.put(`/clientes/api/${id}`, post);
+
+}

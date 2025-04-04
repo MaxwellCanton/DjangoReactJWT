@@ -51,3 +51,7 @@ div.chakra-select__wrapper.css-42b2qy{
     overflow-y: auto;
 
 }
+
+.button_info{
+    border: 2px solid teal;
+}
