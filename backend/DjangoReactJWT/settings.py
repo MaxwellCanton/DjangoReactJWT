@@ -42,9 +42,9 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     
     #propias
-    'Usuarios',
-    'Clientes',
-    'Proyectos',
+    'usuarios',
+    'clientes',
+    'proyectos',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -105,6 +105,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'usuarios.AppUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
