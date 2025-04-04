@@ -1,25 +1,31 @@
-#title-movie{
+#title-box{
     font-size:40px;
 }
 
-#information-movie{
+#information-box{
     display:flex;
 }
 
-#genre-movie{
+#date-box{
     width:50%;
     text-align:right;
 }
 
-#released-movie{
+#phone-box{
     width:50%;
     text-align:left;
     margin-left:5%;
 }
 
-#description-movie{
+#description-box{
     font-size:17px;
     margin-left:10%;
     margin-right:10%;
     margin-top:2%;
+}
+
+#control-buttons-box-box{
+    justify-content: right;
+    margin:2%;
+    display:flex;
 }

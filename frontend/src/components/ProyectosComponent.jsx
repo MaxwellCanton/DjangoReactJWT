@@ -17,7 +17,7 @@ export function ProyectosComponent({return_proyectos, proyectos_list}){
                             <>
                                 {
                                     proyectos_list.map(proyecto=>(
-                                        <Card className='card-movie' key={proyecto.id}>
+                                        <Card className='card-box' key={proyecto.id}>
                                             <div style={{height:"70%"}}>
                                                 {proyecto.nombre}
                                             </div>

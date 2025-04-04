@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from "../styles/DetalleClienteComponent.module.css";
+import { Button} from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 
 function DetalleClienteComponent ({return_cliente_by_id, detail_cliente}){
@@ -10,7 +13,7 @@ function DetalleClienteComponent ({return_cliente_by_id, detail_cliente}){
 
     const params = useParams();
     const id = params.id;
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
 
     useEffect(()=> {return_cliente_by_id(id)}, [])
@@ -20,45 +23,44 @@ function DetalleClienteComponent ({return_cliente_by_id, detail_cliente}){
             <div className='main-panel'>
                 {
                     detail_cliente ?
-                    <>
-                        <div id={styles["title-movie"]} >
-                            {detail_cliente.nombre}
-                        </div>
-
-                        <div id={styles["information-movie"]}>
-                            <div id={styles["genre-movie"]} >
-                                {new Intl.DateTimeFormat("es-ES").format(new Date(detail_cliente.creado_en))}
+                        <>
+                            <div id={styles["title-box"]}>
+                                {detail_cliente.nombre}
                             </div>
-                            <div id={styles["released-movie"]} >
-                                {detail_cliente.telefono}
+
+                            <div id={styles["information-box"]}>
+                                <div id={styles["date-box"]}>
+                                    {new Intl.DateTimeFormat("es-ES").format(new Date(detail_cliente.creado_en))}
+                                </div>
+                                <div id={styles["phone-box"]}>
+                                    {detail_cliente.telefono}
+                                </div>
                             </div>
-                        </div>
 
-                        <div id={styles["description-movie"]} >
-                            Agregado por: {detail_cliente.usuario}
-                        </div>
+                            <div id={styles["description-box"]}>
+                                Agregado por: {detail_cliente.usuario}
+                            </div>
 
+                            <div id={styles["description-box"]}>
+                                {detail_cliente.descripcion}
+                            </div>
 
+                            <div id={styles["control-buttons-box-box"]}>
+                                <div id={styles["delete-box"]} >
+                                    <Button onClick={async () => {
+                                        // delete_cliente(detail_cliente.id);
+                                        navigate("/");
+                                    }} colorScheme='pink' variant='solid'> Borrar </Button>
+                                </div>
 
-                        {/*<div id={styles["control-buttons-movie-box"]}>*/}
-                        {/*    <div id={styles["delete-movie"]} >*/}
-                        {/*        <Button onClick={async () => {*/}
-                        {/*            delete_movie(detail_note.id);*/}
-                        {/*            navigate("/");*/}
-                        {/*        }} colorScheme='pink' variant='solid'> Delete </Button>*/}
-                        {/*    </div>*/}
+                                <div id={styles["edit-box"]} >
+                                    <Button colorScheme='teal' variant='solid'> <Link to={`/clientes/api/update/${detail_cliente.id}`}>Actualizar</Link></Button>
+                                </div>
+                            </div>
 
-                        {/*    <div id={styles["edit-movie"]} >*/}
-                        {/*        <Button colorScheme='teal' variant='solid'> <Link to={`/notes/api/update/${detail_note.id}`}>update</Link></Button>*/}
-                        {/*    </div>*/}
-
-
-                        {/*</div>*/}
-
-                    </> : <> no items </>
+                        </> : <> no items </>
 
                 }
-
 
 
             </div>
