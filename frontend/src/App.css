@@ -33,3 +33,21 @@ html, body {
 div.chakra-select__wrapper.css-42b2qy{
   height: 100%;
 }
+
+.main-panel {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 13px 1px rgb(0 0 0 / 9%);
+  color: #2c7a7b;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 100%;
+  width:100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
