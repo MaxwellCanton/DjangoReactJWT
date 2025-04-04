@@ -1,9 +1,13 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react';
-import { Link } from 'react-router-dom'
+import { Link, useLocation  } from 'react-router-dom'
 import styles from "../styles/HeaderComponent.module.css";
 
 export function HeaderComponent({isAuth, setIsAuth}){
+
+    const location = useLocation();
+    const isProyectosPage = location.pathname.includes('proyectos');
+    const isClientesPage = location.pathname.includes('clientes');
 
     return (
         <div className="header" style={{display:"flex"}}>
@@ -17,7 +21,14 @@ export function HeaderComponent({isAuth, setIsAuth}){
 
             <div id={styles["accounts-buttons-box"]}>
 
-                <Button id={styles["button_create"]} colorScheme='teal' variant='link' as={Link} to="/app/api/create">create</Button>
+
+                {isProyectosPage && (
+                    <Button id={styles["button_create"]} colorScheme='teal' variant='link' as={Link} to="/app/api/create/proyecto">create</Button>
+                )}
+
+                {isClientesPage && (
+                    <Button id={styles["button_create"]} colorScheme='teal' variant='link' as={Link} to="/app/api/create/cliente">create</Button>
+                )}
 
                 {
                     isAuth ?

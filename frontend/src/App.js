@@ -13,6 +13,7 @@ import DetalleClienteComponent from "./components/DetalleClienteComponent";
 import ActualizarClienteComponent from "./components/ActualizarClienteComponent";
 import {LoginComponent} from "./components/LoginComponent";
 import {LogoutComponent} from "./components/LogoutComponent";
+import {CreateClienteComponent} from "./components/CreateClienteComponent";
 
 function App() {
 
@@ -36,6 +37,8 @@ function App() {
                     <Route path="/clientes/api" element={<ClientesComponent/>}/>
                     <Route path="/clientes/api/:id" element={<DetalleClienteComponent />}/>
                     <Route path="/clientes/api/actualizar/:id" element={<ActualizarClienteComponent/>}/>
+
+                    <Route path="/app/api/create/cliente" element={<CreateClienteComponent/>}/>
                 </Routes>
                 <FooterComponent/>
             </div>

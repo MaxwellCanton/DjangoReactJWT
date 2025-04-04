@@ -17,7 +17,12 @@ const client = axios.create({
 export const return_clientes = () => async dispatch => {
 
   try {
-    const res = await client.get("/clientes/api/");
+    const res = await client.get("/clientes/api/",{
+                 headers: {
+                     "Content-Type": "application/json",
+                     Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                 },
+                 withCredentials: true});
 
     if(res.status === 200){
       dispatch({type: GET_CLIENT_LIST_SUCCESS, payload: res.data});
@@ -35,7 +40,12 @@ export const return_cliente_by_id =  (cliente_id) => async dispatch => {
 
   try {
 
-    const res = await client.get(`/clientes/api/${cliente_id}`);
+    const res = await client.get(`/clientes/api/${cliente_id}`,{
+                 headers: {
+                     "Content-Type": "application/json",
+                     Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                 },
+                 withCredentials: true});
 
     if(res.status === 200){
       dispatch({type: GET_CLIENT_BY_ID_SUCCESS, payload: res.data});
@@ -51,12 +61,31 @@ export const return_cliente_by_id =  (cliente_id) => async dispatch => {
 
 export const delete_cliente = (id) => {
 
-  client.delete(`/clientes/api/${id}`);
+  client.delete(`/clientes/api/${id}`,{
+                 headers: {
+                     "Content-Type": "application/json",
+                     Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                 },
+                 withCredentials: true});
 
 }
 
 export const update_cliente = (post, id) => {
 
-    client.put(`/clientes/api/${id}`, post);
+    client.put(`/clientes/api/${id}`, post,{
+                 headers: {
+                     "Content-Type": "application/json",
+                     Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                 },
+                 withCredentials: true});
 
+}
+
+export const create_cliente = (post) => {
+    const res = client.post("/clientes/api/", post,{
+                 headers: {
+                     "Content-Type": "application/json",
+                     Authorization: `Bearer ${localStorage.getItem("access_token")}`
+                 },
+                 withCredentials: true});
 }
