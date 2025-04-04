@@ -1,0 +1,35 @@
+
+#accounts-buttons-box{
+    width:42%;
+    text-align:right;
+}
+
+#button_create{
+    border: 2px solid teal;
+    width: 33%;
+}
+
+#button_logout{
+    border: 2px solid teal;
+    width: 33%;
+}
+
+#button_login{
+    border: 2px solid teal;
+    width: 33%;
+}
+
+#button_register{
+    border: 2px solid teal;
+    width: 33%;
+}
+
+#button_clientes{
+    border: 2px solid teal;
+    width: 50%;
+}
+
+#button_proyectos{
+    width: 50%;
+    border: 2px solid teal;
+}

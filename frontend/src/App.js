@@ -3,8 +3,9 @@ import { ChakraProvider } from '@chakra-ui/react';
 import store from './store'
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { FooterComponent } from './components/FooterComponent';
 import BodyComponent from './components/BodyComponent';
+import HeaderComponent from "./components/HeaderComponent";
+import { FooterComponent } from './components/FooterComponent';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
 
         <Router>
             <div className='App'>
+                <HeaderComponent/>
                 <Routes>
                   <Route path="/" element={<BodyComponent/>}/>
                 </Routes>

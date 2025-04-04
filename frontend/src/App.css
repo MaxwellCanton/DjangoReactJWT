@@ -1,4 +1,16 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 87vh;
+}
 
+.header {
+  margin-bottom: 0px;
+  height:7vh;
+  display: flex;
+  justify-content: center;
+}
 
 .footer {
   justify-content: center;
@@ -17,9 +29,6 @@ html, body {
   justify-content: center;
   text-align: center;
 }
-
-
-
 
 div.chakra-select__wrapper.css-42b2qy{
   height: 100%;
