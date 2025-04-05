@@ -3,9 +3,14 @@
     text-align:left;
 }
 
-#select-categories-box-inf{
+#select-categories-box-one{
     width:40%;
-    height:100%;
+    height:50%;
+}
+
+#select-categories-box-two{
+    width:40%;
+    height:50%;
 }
 
 #accounts-buttons-box{

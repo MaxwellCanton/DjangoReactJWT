@@ -59,3 +59,16 @@ class ProyectoByIdView(APIView):
         else:
             print(serializer.errors)
             return Response({"success": False})
+
+
+class ProyectosPorEstadoView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, estado_id):
+        if Proyecto.objects.all().exists():
+            proyectos = Proyecto.objects.filter(estado = estado_id)
+            serializer = ProyectoSerializer(proyectos, many=True)
+            return Response({'proyectos':serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({'error':'No hay proyectos con este estado'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

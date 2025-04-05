@@ -3,6 +3,8 @@ import {
     GET_PROJECT_LIST_FAIL,
     GET_PROJECT_BY_ID_SUCCESS,
     GET_PROJECT_BY_ID_FAIL,
+    GET_PROJECTS_BY_STATUS_SUCCESS,
+    GET_PROJECTS_BY_STATUS_FAIL,
 } from '../actions/types';
 
 const initialState = {
@@ -31,6 +33,16 @@ export default function proyecto(state = initialState, action) {
             return {
                 ...state,
                 detail_proyecto: null,
+            }
+        case GET_PROJECTS_BY_STATUS_SUCCESS:
+            return {
+                ...state,
+                proyectos_list: payload.proyectos,
+            }
+        case GET_PROJECTS_BY_STATUS_FAIL:
+            return {
+                ...state,
+                proyectos_list: null,
             }
         default:
             return state

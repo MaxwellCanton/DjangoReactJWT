@@ -4,9 +4,10 @@ import React, { useEffect } from 'react';
 import { Card, SimpleGrid, Button } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
-export function ClientesComponent({return_clientes, clientes_list}){
+export function ClientesComponent({return_clientes, clientes_list, setIsVisible}){
 
     useEffect(()=> {return_clientes()}, [])
+    setIsVisible("none")
 
     return (
         <div className='container'>

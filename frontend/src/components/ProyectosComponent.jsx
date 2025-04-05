@@ -4,10 +4,10 @@ import React, { useEffect } from 'react';
 import {Button, Card, SimpleGrid} from '@chakra-ui/react'
 import {Link} from "react-router-dom";
 
-export function ProyectosComponent({return_proyectos, proyectos_list}){
+export function ProyectosComponent({return_proyectos, proyectos_list, setIsVisible}){
 
     useEffect(()=> {return_proyectos()}, [])
-
+    setIsVisible("block")
     return (
         <div className='container'>
             <div className='main-panel'>

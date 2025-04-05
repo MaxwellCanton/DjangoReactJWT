@@ -18,7 +18,7 @@ import {RegisterComponent} from "./components/RegisterComponent";
 import DetalleProyectoComponent from "./components/DetalleProyectoComponent";
 import ActualizarProyectoComponent from "./components/ActualizarProyectoComponent";
 import CreateProyectoComponent from "./components/CreateProyectoComponent";
-
+import ProyectosPorEstadosComponent from "./components/ProyectosPorEstadosComponent";
 import axios from 'axios';
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFToken"
@@ -27,6 +27,7 @@ axios.defaults.withCredentials = true;
 function App() {
 
     const [isAuth, setIsAuth] = useState(false);
+    const [isVisible, setIsVisible] = useState("block");
     useEffect(() => {
         if(localStorage.getItem('access_token') === null){
             setIsAuth(false)
@@ -39,20 +40,21 @@ function App() {
         <ChakraProvider >
           <Provider store={store}>
             <div className='App'>
-                <HeaderComponent isAuth={isAuth} setIsAuth={setIsAuth}/>
+                <HeaderComponent isAuth={isAuth} setIsAuth={setIsAuth} isVisible={isVisible}/>
                 <Routes>
                     <Route path="/" element={<BodyComponent/>}/>
                     <Route path="/app/api/login" element={<LoginComponent setIsAuth={setIsAuth}/>}/>
                     <Route path="/app/api/logout" element={<LogoutComponent setIsAuth={setIsAuth}/>}/>
                     <Route path="/app/api/register" element={<RegisterComponent/>}/>
 
-                    <Route path="/proyectos/api" element={<ProyectosComponent/>}/>
+                    <Route path="/proyectos/api" element={<ProyectosComponent setIsVisible={setIsVisible}/>}/>
                     <Route path="/proyectos/api/:id" element={<DetalleProyectoComponent />}/>
+                    <Route path="/proyectos/api/proyectos_estados/:str" element={<ProyectosPorEstadosComponent setIsVisible={setIsVisible}/>}/>
                     <Route path="/proyectos/api/actualizar/:id" element={<ActualizarProyectoComponent/>}/>
                     <Route path="/app/api/create/proyecto" element={<CreateProyectoComponent isAuth={isAuth}/>}/>
 
 
-                    <Route path="/clientes/api" element={<ClientesComponent/>}/>
+                    <Route path="/clientes/api" element={<ClientesComponent setIsVisible={setIsVisible}/>}/>
                     <Route path="/clientes/api/:id" element={<DetalleClienteComponent />}/>
                     <Route path="/clientes/api/actualizar/:id" element={<ActualizarClienteComponent/>}/>
                     <Route path="/app/api/create/cliente" element={<CreateClienteComponent isAuth={isAuth}/>}/>
