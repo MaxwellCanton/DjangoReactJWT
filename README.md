@@ -20,6 +20,10 @@ This project was bootstrapped with https://www.djangoproject.com/
 ### python manage.py makemigrations proyectos
 ### python manage.py migrate
 
+# Load data (opcional)
+
+###  python manage.py loaddata data.json
+
 # Install react packages
 
 ### npm install
