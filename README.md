@@ -1,38 +1,39 @@
-Getting Started with Create React App
+# Getting Started with Create React App
 This project was bootstrapped with Create React App.
 
-Getting Started with Django App
+# Getting Started with Django App
 This project was bootstrapped with https://www.djangoproject.com/
 
-#Create a virtual environment to install dependencies in and activate it:
+# Create a virtual environment to install dependencies in and activate it:
 
-pip install virtualenv
-python -m venv venv
-venv\Scripts\activate
+### pip install virtualenv
+### python -m venv venv
+### venv\Scripts\activate
 #Then install the dependencies:
 
-(env)$ pip install -r requirements.txt
-#Enable database and django apps
+### (env)$ pip install -r requirements.txt
 
-python manage.py makemigrations blog
-python manage.py makemigrations security
-#Install react packages
+# Enable database and django apps
 
-npm install
-npm run build
-#Migrate database
+### python manage.py makemigrations usuarios
+### python manage.py makemigrations clientes
+### python manage.py makemigrations proyectos
+### python manage.py migrate
 
-python manage.py migrate
-#Load data (opcional)
+# Install react packages
 
-python manage.py loaddata db.json
-#Run servers
+### npm install
+### npm run build
+
+
+# Run servers
 
 Available Scripts
 In the project directory, you can run:
 
-python manage.py runserver
-npm run start
+###  python manage.py runserver
+###  npm run start
 
 Runs the app in the development mode.
-Open http://localhost:3000 to view it in your browser.
+Open http://localhost:8000 for backend.
+Open http://localhost:3000 for frontend.
