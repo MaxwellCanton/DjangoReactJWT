@@ -26,7 +26,7 @@ This project was bootstrapped with https://www.djangoproject.com/
 
 # Install react packages
 
-### npm install
+### npm install --legacy-peer-deps
 ### npm run build
 
 
